@@ -2,6 +2,8 @@
 
 ## Overview
 
+https://docs.google.com/document/d/1l4XvIrAvG3BzCm1rx1DLrsFiA_P03kPu7JntR81j278/edit?usp=sharing
+
 This project focuses on gaining proficiency in Node.js, a runtime environment for executing JavaScript code outside of a web browser. You will learn how to create servers, interact with the file system, manage processes, and more using Node.js. Additionally, you will become familiar with Express.js, a web application framework for Node.js, and various tools such as Mocha, Nodemon, and Babel-node.
 
 ## Learning Objectives
