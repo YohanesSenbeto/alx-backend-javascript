@@ -1,20 +1,11 @@
 {
   "name": "0x06-unittests_in_js",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
-    "test": "mocha --require./node_modules/@babel/register 3-payment.test.js"
+    "test": "mocha --require babel-register"
   },
   "devDependencies": {
-    "@babel/cli": "^7.24.5",
-    "@babel/core": "^7.24.5",
-    "@babel/preset-env": "^7.24.5",
-    "@babel/register": "^7.23.7",
-    "@std/esm": "^0.26.0",
-    "chai": "^4.4.1",
-    "mocha": "^9.2.2"
-  },
-  "dependencies": {
-    "sinon": "^17.0.1"
+    "babel-register": "^6.26.0",
+    "mocha": "^9.1.3"
   }
 }
