@@ -1,9 +1,10 @@
-export class Utils {
-  calculateNumber(type, a, b) {
+const Utils = {
+  calculateNumber: (type, a, b) => {
     if (type === 'SUM') {
       return a + b;
-    } else {
-      throw new Error('Invalid type');
     }
+    // add more operations as needed
   }
-}
+};
+
+module.exports = Utils;

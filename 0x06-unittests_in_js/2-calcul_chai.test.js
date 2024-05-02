@@ -1,25 +1,25 @@
-import chai from 'chai';
+const chai = require('chai');
 const expect = chai.expect;
-import calculateNumber from './2-calcul_chai.js';
+const calculateNumber = require('./2-calcul_chai');
 
-describe('calculateNumber', () => {
-  it('should perform SUM operation', () => {
-    expect(calculateNumber('SUM', 2.3, 1.8)).to.equal(4);
+describe('calculateNumber', function() {
+  it('should perform SUM operation', function() {
+    expect(calculateNumber('SUM', 2.1, 3.8)).to.equal(5.9);
   });
 
-  it('should perform SUBTRACT operation', () => {
-    expect(calculateNumber('SUBTRACT', 2.3, 1.8)).to.equal(0);
+  it('should perform SUBTRACT operation', function() {
+    expect(calculateNumber('SUBTRACT', 7.5, 2.9)).to.equal(4.6);
   });
 
-  it('should perform DIVIDE operation', () => {
-    expect(calculateNumber('DIVIDE', 8.0, 2.0)).to.equal(4.0);
+  it('should perform DIVIDE operation', function() {
+    expect(calculateNumber('DIVIDE', 10.5, 2.1)).to.equal(5);
   });
 
-  it('should return Error for DIVIDE by zero', () => {
-    expect(calculateNumber('DIVIDE', 8.0, 0)).to.equal('Error');
+  it('should return Error for DIVIDE by zero', function() {
+    expect(calculateNumber('DIVIDE', 10.5, 0)).to.equal('Error');
   });
 
-  it('should throw an error for invalid operation type', () => {
-    expect(() => calculateNumber('INVALID', 2.0, 2.0)).to.throw(Error);
+  it('should throw an error for invalid operation type', function() {
+    expect(() => calculateNumber('INVALID', 2.0, 2.0)).to.throw(Error, 'Invalid operation');
   });
 });

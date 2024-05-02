@@ -1,14 +1,23 @@
 const calculateNumber = (type, a, b) => {
-  const operations = {
-    SUM: (a, b) => Math.round(a) + Math.round(b),
-    SUBTRACT: (a, b) => Math.round(a) - Math.round(b),
-    DIVIDE: (a, b) => {
-      if (Math.round(b) === 0) return 'Error';
-      return Math.round(a) / Math.round(b);
-    }
-  };
+  const roundedA = Math.round(a * 10) / 10;
+  const roundedB = Math.round(b * 10) / 10;
 
-  return operations[type](a, b);
-};
+  if (type === 'SUM') {
+      return roundedA + roundedB;
+  }
 
-export default calculateNumber;
+  if (type === 'SUBTRACT') {
+      return roundedA - roundedB;
+  }
+
+  if (type === 'DIVIDE') {
+      if (roundedB === 0) {
+          return 'Error';
+      }
+      return roundedA / roundedB;
+  }
+
+  throw new Error('Invalid operation');
+}
+
+module.exports = calculateNumber;
