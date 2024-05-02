@@ -1,20 +1,34 @@
 const assert = require('assert');
-const calculateNumber = require('./0-calcul');
+const calculateNumber = require('./0-calcul.js');
+
+console.log('> const calculateNumber = require("./0-calcul.js");');
+
+console.log('> calculateNumber(1, 3)');
+console.log(calculateNumber(1, 3));
+
+console.log('> calculateNumber(1, 3.7)');
+console.log(calculateNumber(1, 3.7));
+
+console.log('> calculateNumber(1.2, 3.7)');
+console.log(calculateNumber(1.2, 3.7));
+
+console.log('> calculateNumber(1.5, 3.7)');
+console.log(calculateNumber(1.5, 3.7));
 
 describe('calculateNumber', () => {
-  it('should return 4 when adding 1 and 3', () => {
+  it('should return 4 when a = 1 and b = 3', () => {
     assert.strictEqual(calculateNumber(1, 3), 4);
   });
 
-  it('should return 5 when adding 1 and 3.7', () => {
+  it('should return 5 when a = 1 and b = 3.7', () => {
     assert.strictEqual(calculateNumber(1, 3.7), 5);
   });
 
-  it('should return 5 when adding 1.2 and 3.7', () => {
+  it('should return 5 when a = 1.2 and b = 3.7', () => {
     assert.strictEqual(calculateNumber(1.2, 3.7), 5);
   });
 
-  it('should return 6 when adding 1.5 and 3.7', () => {
+  it('should return 6 when a = 1.5 and b = 3.7', () => {
     assert.strictEqual(calculateNumber(1.5, 3.7), 6);
   });
 });
