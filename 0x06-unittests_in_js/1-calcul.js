@@ -1,17 +1,14 @@
-function calculateNumber(type, a, b) {
-  switch (type) {
-    case 'SUM':
-      return Math.round(a + b);
-    case 'SUBTRACT':
-      return Math.round(a - b);
-    case 'DIVIDE':
-      if (b === 0) {
-        return 'Error';
-      }
-      return parseFloat((a / b).toFixed(1));
-    default:
-      throw new Error('Unknown operation');
-  }
-}
+const calculateNumber = (type, a, b) => {
+  const operations = {
+    SUM: (a, b) => Math.round(a) + Math.round(b),
+    SUBTRACT: (a, b) => Math.round(a) - Math.round(b),
+    DIVIDE: (a, b) => {
+      if (Math.round(b) === 0) return 'Error';
+      return Math.round(a) / Math.round(b);
+    }
+  };
+
+  return operations[type](a, b);
+};
 
 module.exports = calculateNumber;
