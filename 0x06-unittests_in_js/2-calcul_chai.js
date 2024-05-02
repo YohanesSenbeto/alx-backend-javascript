@@ -1,17 +1,15 @@
-const calculateNumber = (operation, a, b) => {
-  const roundA = Math.round(a);
-  const roundB = Math.round(b);
-
+export function calculateNumber(operation, num1, num2) {
   switch (operation) {
-    case 'ADD':
-      return roundA + roundB;
+    case 'SUM':
+      return num1 + num2;
     case 'SUBTRACT':
-      return roundA - roundB;
+      return num1 - num2;
     case 'DIVIDE':
-      return roundB === 0? 'Error: Division by zero' : roundA / roundB;
+      if (num2 === 0) {
+        return 'Error';
+      }
+      return num1 / num2;
     default:
-      return 'Error: Invalid operation';
+      return 'Error';
   }
-};
-
-module.exports = calculateNumber;
+}

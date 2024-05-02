@@ -1,11 +1,13 @@
 {
   "name": "0x06-unittests_in_js",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "test": "mocha --require babel-register"
+    "test": "mocha --require babel-register --experimental-modules"
   },
   "devDependencies": {
     "babel-register": "^6.26.0",
+    "chai": "^4.4.1",
     "mocha": "^9.1.3"
   }
 }
