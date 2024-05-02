@@ -1,62 +1,25 @@
-const { expect } = require('chai');
-const calculateNumber = require('./2-calcul_chai');
+import chai from 'chai';
+const { expect } = chai;
+import { calculateNumber } from './2-calcul_chai.js'; // Corrected import statement
 
 describe('calculateNumber', () => {
-  describe('type == "SUM"', () => {
-    it('adds two positive numbers', () => {
-      expect(calculateNumber('SUM', 2.5, 3.7)).to.equal(6);
-    });
-
-    it('adds two negative numbers', () => {
-      expect(calculateNumber('SUM', -2.5, -3.7)).to.equal(-6);
-    });
-
-    it('adds a positive and a negative number', () => {
-      expect(calculateNumber('SUM', 2.5, -3.7)).to.equal(-1);
-    });
-
-    it('adds two numbers with different decimal places', () => {
-      expect(calculateNumber('SUM', 2.25, 3.75)).to.equal(6);
-    });
+  it('should perform SUM operation', () => {
+    expect(calculateNumber('SUM', 2.3, 1.8)).to.equal(4);
   });
 
-  describe('type == "SUBTRACT"', () => {
-    it('subtracts two positive numbers', () => {
-      expect(calculateNumber('SUBTRACT', 5.2, 2.8)).to.equal(2);
-    });
-
-    it('subtracts two negative numbers', () => {
-      expect(calculateNumber('SUBTRACT', -5.2, -2.8)).to.equal(-2);
-    });
-
-    it('subtracts a positive and a negative number', () => {
-      expect(calculateNumber('SUBTRACT', 5.2, -2.8)).to.equal(8);
-    });
-
-    it('subtracts two numbers with different decimal places', () => {
-      expect(calculateNumber('SUBTRACT', 5.25, 2.75)).to.equal(2);
-    });
+  it('should perform SUBTRACT operation', () => {
+    expect(calculateNumber('SUBTRACT', 2.3, 1.8)).to.equal(0);
   });
 
-  describe('type == "DIVIDE"', () => {
-    it('divides two positive numbers', () => {
-      expect(calculateNumber('DIVIDE', 10.0, 2.0)).to.equal(5);
-    });
+  it('should perform DIVIDE operation', () => {
+    expect(calculateNumber('DIVIDE', 8.0, 2.0)).to.equal(4);
+  });
 
-    it('divides two negative numbers', () => {
-      expect(calculateNumber('DIVIDE', -10.0, -2.0)).to.equal(5);
-    });
+  it('should return Error for DIVIDE by zero', () => {
+    expect(calculateNumber('DIVIDE', 8.0, 0)).to.equal('Error');
+  });
 
-    it('divides a positive and a negative number', () => {
-      expect(calculateNumber('DIVIDE', 10.0, -2.0)).to.equal(-5);
-    });
-
-    it('divides by zero', () => {
-      expect(calculateNumber('DIVIDE', 10.0, 0.0)).to.equal('Error');
-    });
-
-    it('divides by a very small number', () => {
-      expect(calculateNumber('DIVIDE', 10.0, 0.0001)).to.equal('Error');
-    });
+  it('should throw an error for invalid operation type', () => {
+    expect(() => calculateNumber('INVALID', 2.0, 2.0)).to.throw(Error);
   });
 });

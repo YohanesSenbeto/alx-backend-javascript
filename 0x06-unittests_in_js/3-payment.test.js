@@ -1,13 +1,15 @@
-const sinon = require('sinon');
-const expect = require('chai').expect;
-const sendPaymentRequestToApi = require('./3-payment.js');
-const Utils = require('./utils.js');
+import chai from "chai";
+import sinon from "sinon";
+const { expect } = chai;
+import { sendPaymentRequestToApi } from "./3-payment.js";
+import { Utils } from "./utils.js";
 
 describe('sendPaymentRequestToApi', () => {
-  it('should call Utils.calculateNumber with type SUM, totalAmount, and totalShipping', () => {
-    const spy = sinon.spy(Utils, 'calculateNumber');
+  it('should call Utils.calculateNumber with correct arguments', () => {
+    const utils = new Utils();
+    const calculateNumberSpy = sinon.spy(utils, 'calculateNumber');
     sendPaymentRequestToApi(100, 20);
-    expect(spy.calledWith('SUM', 100, 20)).to.be.true;
-    spy.restore();
+    expect(calculateNumberSpy.calledWith('SUM', 100, 20)).to.be.true;
+    calculateNumberSpy.restore();
   });
 });

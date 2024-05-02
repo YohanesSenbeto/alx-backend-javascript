@@ -1,8 +1,9 @@
-const Utils = require('./utils.js');
-
-function sendPaymentRequestToApi(totalAmount, totalShipping) {
-  const result = Utils.calculateNumber('SUM', totalAmount, totalShipping);
-  console.log(`The total is: ${result}`);
+export class Utils {
+  calculateNumber(type, a, b) {
+    if (type === 'SUM') {
+      return a + b;
+    } else {
+      throw new Error('Invalid type');
+    }
+  }
 }
-
-module.exports = sendPaymentRequestToApi;
