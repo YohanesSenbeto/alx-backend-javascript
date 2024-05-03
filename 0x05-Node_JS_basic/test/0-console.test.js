@@ -1,6 +1,6 @@
 const sinon = require('sinon');
 const expect = require('chai').expect;
-const displayMessage = require('./0-console');
+const displayMessage = require('../0-console');
 
 describe('displayMessage', () => {
   it('prints the message to the console', () => {
