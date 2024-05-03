@@ -1,14 +1,20 @@
-const calculateNumber = (type, a, b) => {
-  const operations = {
-    SUM: (a, b) => Math.round(a) + Math.round(b),
-    SUBTRACT: (a, b) => Math.round(a) - Math.round(b),
-    DIVIDE: (a, b) => {
-      if (Math.round(b) === 0) return 'Error';
-      return Math.round(a) / Math.round(b);
-    }
-  };
+function calculateNumber(type, a, b) {
+  a = Math.round(a);
+  b = Math.round(b);
 
-  return operations[type](a, b);
-};
+  switch (type) {
+    case 'SUM':
+      return a + b;
+    case 'SUBTRACT':
+      return a - b;
+    case 'DIVIDE':
+      if (b === 0) {
+        return 'Error';
+      }
+      return a / b;
+    default:
+      throw new Error('Invalid operation type');
+  }
+}
 
 module.exports = calculateNumber;
